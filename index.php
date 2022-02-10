@@ -48,7 +48,15 @@ $nbrDays = cal_days_in_month(CAL_GREGORIAN, $curMonth, $curYear);
 $lastDays = new DateTime($curYear.'-'.$curMonth.'-'.$nbrDays);
 $essai = $lastDays->format('N');
 
+$thisYear = date ('Y');
+$thisMonth = date ('n');
+$today = date('j');
 
+
+
+$thisYear = date ('Y');
+$thisMonth = date ('n');
+$today = date('j');
 
 
 ?>
@@ -139,8 +147,20 @@ $essai = $lastDays->format('N');
                     
                     // jour du mois actuel
                     while ($i <= $nbrDays) {
-                        echo "<div class=\"day-box d$i\">$i</div>";
+                        if ($curMonth == $thisMonth && $curYear == $thisYear) {
+                            if ($i == $today) {
+                                echo "<div class=\"day-box d$i\">
+                                        <div class=\"today\" >$i</div>
+                                      </div>";
+                            }else {
+                                echo "<div class=\"day-box d$i\">$i</div>";
+                            }
+                            $i++;
+                        }else {
+                            echo "<div class=\"day-box d$i\">$i</div>";
                         $i++;
+                        }
+                        
                     }
 
                     // jour du mois d'après
