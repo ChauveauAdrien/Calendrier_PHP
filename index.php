@@ -132,7 +132,7 @@ $today = date('j');
 
                     while ($a >= 1 ) {
                         date_add($aDate, date_interval_create_from_date_string('-1 days'));
-                        $test = date_format($aDate,"d");
+                        $test = date_format($aDate,"j");
                         array_push($arrayTest, $test);
                         $a--;
                     }
@@ -160,13 +160,14 @@ $today = date('j');
                             echo "<div class=\"day-box d$i\">$i</div>";
                         $i++;
                         }
+
                         
                     }
-
+                    
                     // jour du mois d'après
                     while ($essai < 7 ) {
                         date_add($lastDays, date_interval_create_from_date_string('1 days'));
-                        $ld = date_format($lastDays,"d");
+                        $ld = date_format($lastDays,"j");
                         echo "<div class=\"day-box-before\">$ld</div>";
                         $essai++;
                     }
